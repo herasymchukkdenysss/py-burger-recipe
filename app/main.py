@@ -28,7 +28,7 @@ class Number(Validator):
             raise TypeError("Quantity should be integer.")
         if not (self.min_value <= value <= self.max_value):
             raise ValueError(
-                f"Grade should not be less than {self.min_value} "
+                f"Quantity should not be less than {self.min_value} "
                 f"and greater than {self.max_value}."
             )
 
@@ -37,7 +37,7 @@ class OneOf(Validator):
     def __init__(self, options: tuple) -> None:
         self.options = options
 
-    def validate(self, value: int) -> None:
+    def validate(self, value: Any) -> None:
         if value not in self.options:
             raise ValueError(f"Expected {value} to be one of {self.options}.")
 
